@@ -21,7 +21,7 @@ def resolution (c, x, p): # input: coefficients, distances, scattering parameter
     b = c @ (x * (2* np.cumsum (x) - x))
     # normalized tracking error
     d = np.sum( np.diff(c ,1 ,0 ,0 ,0)**2)
-    m = c @ x - np.cumsum(c*x); # eq .(9)
+    m = - np.cumsum(c*x); # eq .(9)
     # normalized scattering error
     s = x @ ((c*x)**2 + 3* c * x * m + 3 * m**2)
     
